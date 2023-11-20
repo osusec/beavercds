@@ -1,5 +1,13 @@
 # Software Development Process
 
+## Roles
+
+Nicholas Graves: Lead Engineer
+Benjamin Lane: Lead Engineer
+Kai Morita-McVey: Lead Engineer
+
+_Due to project schedule, roles will be differentiated once development starts._
+
 ## Principles
 
 - We will maintain a weekly meeting with our project supervisor to keep the team and
@@ -25,23 +33,38 @@ meetings, you will refine and add new items to the backlog.
 - Code review is a crucial part of the process, ensuring that code changes meet quality standards and follow best practices. These will primarily be done in individual group meetings throughout the week without the project manager.
 - Testing is a continuous aspect of the process. The team will develop comprehensive test cases and actively work on resolving identified bugs in a robust thorough manner.
 
-## Roles
 
-Nicholas Graves: Lead Engineer
-Benjamin Lane: Lead Engineer
-Kai Morita-McVey: Lead Engineer
+## Tooling
+
+The following table describes the tools that will be used for different parts of our process.
 
 | Tool/Category   | Solution |
 |--------------- | --------------- |
 | Version Control   | GitHub repository   |
 | Project Management | GitHub issues and projects |
-| Documentation | Documentation already exists for this project. Se we will be adding to an already existing set of documentation. [rCDS documentation](https://rcds.redpwn.net/en/latest/).|
+| Documentation | Documentation already exists for this project inside the repo. Se we will be adding to an already existing set of documentation |
 | Test Framework | We will be using past CTF challenges as test deployments for our product. |
 | Linting and Formatting | black and flake8 | 
 | CI/CD | GitHub Actions |
-| IDE | VSCode(ium), Vim |
+| IDE | Up to developers choice |
 | Graphic Design | Figma and pen and Paper (depending on task) |
 | Others | Kubernetes (k8s) |
+
+## Release Cycle
+
+- Deploy to a staging environment after every successful merge to the main branch. This provides a continuous testing environment for ongoing development.
+- Plan to release to the production environment after thorough testing and validation in the staging environment.
+- Release bug fixes and patches as needed to address issues or vulnerabilities. These releases should be scheduled based on the severity and urgency of the bugs.
+- Conduct release planning meetings to determine the content of each release, including features, bug fixes, and enhancements. Ensure that stakeholders are aligned on release priorities.
+- Gather feedback from users and stakeholders after each release and use it for continuous improvement and refinement of the project.
+
+## Environments
+
+| Environment    | Infrastructure | Deployment | What is it for? | Monitoring |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+|Production | Kubernetes (k8s on GCP) | Release | Deploying the challenges | N/A|
+|Staging (test) | Test using local k8s version | Pull Request | Testing and validating new bug fixes and features | N/A |
+| Dev | Local | Commit | Development and unit tests | N/A|
 
 ## Definition of Done (DoD)
 
@@ -53,22 +76,4 @@ Kai Morita-McVey: Lead Engineer
 - The changes are deployed to a staging environment for final testing and validation before production deployment.
 - The finished task or user story, together with any pertinent functionality, is showcased in a demo or presentation that will be created for the upcoming stakeholder meeting.
 - A peer review process is conducted, involving at least one team member reviewing the code changes to ensure code quality and adherence to coding standards.
-
-## Release Cycle
-
-- Deploy to a staging environment after every successful merge to the main branch. This provides a continuous testing environment for ongoing development.
-- Plan to release to the production environment after thorough testing and validation in the staging environment.
-- Release bug fixes and patches as needed to address issues or vulnerabilities. These releases should be scheduled based on the severity and urgency of the bugs.
-- Conduct release planning meetings to determine the content of each release, including features, bug fixes, and enhancements. Ensure that stakeholders are aligned on release priorities.
-- Gather feedback from users and stakeholders after each release and use it for continuous improvement and refinement of the project.
-
-
-## Environments
-
-| Environment    | Infrastructure | Deployment | What is it for? | Monitoring |
-|---------------- | --------------- | --------------- | --------------- | --------------- |
-|Production | Kubernetes (k8s) | Release | Deploying the challenges | N/A|
-|Staging (test) | Test using local k8s version | Pull Request | Testing and validating new bug fixes and features | N/A |
-| Dev | Local | Commit | Development and unit tests | N/A|
-
 
