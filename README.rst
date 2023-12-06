@@ -6,10 +6,6 @@ rCDS
     :target: https://github.com/redpwn/rCDS/actions?query=workflow%3ACI+branch%3Amaster
     :alt: CI Status
 
-.. image:: https://img.shields.io/codecov/c/gh/redpwn/rcds
-    :target: https://codecov.io/gh/redpwn/rcds
-    :alt: Coverage
-
 .. image:: https://img.shields.io/readthedocs/rcds/latest
     :target: https://rcds.redpwn.net/
     :alt: Docs
