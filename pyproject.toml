@@ -21,9 +21,9 @@ pathspec = "^0.11.2"
 docker = "^7.0.0"
 jsonschema = "^3.2.0"
 Jinja2 = ">=2.11.2,<4.0.0"
-kubernetes = "^12.0.0"
-requests = "^2.24.0"
-requests-toolbelt = "^0.9.1"
+kubernetes = "^29.0.0"
+requests = "^2.31.0"
+requests-toolbelt = "^1.0.0"
 click = "^8.1.7"
 
 # Docs build dependencies
