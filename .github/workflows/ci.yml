@@ -5,6 +5,7 @@ on:
     tags:
       - v*
   pull_request:
+  workflow_dispatch:
 
 jobs:
   lint:
@@ -31,7 +32,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: [3.9, '3.10']
     steps:
       - uses: actions/checkout@v2
 
@@ -51,12 +52,6 @@ jobs:
       - name: Test
         run: |
           make cover
-
-      - name: Upload coverage reports
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        run: |
-          codecov --token="$CODECOV_TOKEN"
 
   publish:
     runs-on: ubuntu-20.04

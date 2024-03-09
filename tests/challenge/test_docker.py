@@ -59,7 +59,7 @@ class TestContainerManager:
         simple_container = container_mgr.containers["simple"]
         assert simple_container.name == "simple"
         assert simple_container.IS_BUILDABLE
-        assert type(simple_container) == docker.BuildableContainer
+        assert type(simple_container) is docker.BuildableContainer
         simple_container = cast(docker.BuildableContainer, simple_container)
         assert simple_container.get_full_tag().startswith("registry.com/ns/")
         assert "simple" in simple_container.get_full_tag()
@@ -73,7 +73,7 @@ class TestContainerManager:
         complex_container = container_mgr.containers["complex"]
         assert complex_container.name == "complex"
         assert complex_container.IS_BUILDABLE
-        assert type(complex_container) == docker.BuildableContainer
+        assert type(complex_container) is docker.BuildableContainer
         complex_container = cast(docker.BuildableContainer, complex_container)
         assert complex_container.get_full_tag().startswith("registry.com/ns/")
         assert "complex" in complex_container.get_full_tag()
@@ -87,7 +87,7 @@ class TestContainerManager:
         pg_container = container_mgr.containers["postgres"]
         assert pg_container.name == "postgres"
         assert not pg_container.IS_BUILDABLE
-        assert type(pg_container) == docker.Container
+        assert type(pg_container) is docker.Container
         assert pg_container.get_full_tag() == "postgres"
 
     def test_multiple_chall_independence(self, project) -> None:
