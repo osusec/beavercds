@@ -7,7 +7,6 @@ from requests_toolbelt.sessions import BaseUrlSession  # type: ignore
 
 
 class RCTFAdminV1:
-
     session: requests.Session
 
     def __init__(self, endpoint: str, login_token: Optional[str]):
