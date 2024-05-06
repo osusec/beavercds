@@ -1,3 +1,83 @@
+Running rCDS for an Event
+=========================
+
+This section provides a detailed guide on how to set up rCDS for your event, from initializing a managed Kubernetes cluster to promoting an admin team.
+
+Setup Managed Kubernetes Cluster
+--------------------------------
+
+1. **Choose a Managed Kubernetes Service**: Select a managed Kubernetes service from providers like Google Kubernetes Engine (GKE), Amazon EKS, or Azure Kubernetes Service (AKS). We used Amazon EKS for the most recent event.
+
+2. **Create the Cluster**: Follow the provider's instructions to create a Kubernetes cluster. Ensure you have enough nodes and resources allocated based on the expected load.
+
+Install Ingress Controller
+--------------------------
+
+1. **Install NGINX Ingress Controller**:
+
+   - Apply the NGINX Ingress Controller using the following command:
+
+     .. code-block:: bash
+
+        kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+
+   - Verify the installation:
+
+     .. code-block:: bash
+
+        kubectl get pods -n ingress-nginx \
+          -l app.kubernetes.io/name=ingress-nginx --watch
+
+Deploy rCTF using Helm
+----------------------
+
+1. **Add the Helm Repository**:
+
+   .. code-block:: bash
+
+      helm repo add rctf https://helm.redpwn.net
+
+2. **Install rCTF**:
+
+   .. code-block:: bash
+
+      helm install rctf rctf/rctf
+
+Non-rCDS Deployment Setup
+-------------------------
+
+1. **Create an Admin Team**:
+
+   - After deploying rCTF, create a team through the platform's user interface.
+
+2. **Promote to Admin**:
+
+   - Access the database associated with rCTF.
+   - Update the team's role to 'admin' using a database query:
+
+     .. code-block:: sql
+
+        UPDATE teams SET role='admin' WHERE team_name='your_admin_team_name';
+
+Verification
+------------
+
+1. **Verify Installation**:
+
+   - Ensure that all components are running correctly by checking the statuses of all pods and services.
+   - Access the rCTF platform through the ingress IP to confirm that the installation is functional.
+
+2. **Test with Sample Challenges**:
+
+   - Deploy a few sample challenges to verify that challenges are being loaded and executed correctly.
+
+.. note::
+
+   It is important to perform a dry run of the setup before the actual event to ensure all components are configured correctly and operational.
+
+
+
+
 Deployment Backends
 ===================
 
