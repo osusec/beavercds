@@ -80,9 +80,11 @@ HTTPS on challenges.
 Options Reference
 -----------------
 
-.. jsonschema:: ../../../rcds/backends/k8s/options.schema.yaml
+.. code-block:: none
 
-Raw schema:
+   .. jsonschema:: ../../../rcds/backends/k8s/options.schema.yaml
 
-.. literalinclude:: ../../../rcds/backends/k8s/options.schema.yaml
-    :language: yaml
+      Raw schema:
+
+   .. literalinclude:: ../../../rcds/backends/k8s/options.schema.yaml
+      :language: yaml

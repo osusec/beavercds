@@ -187,9 +187,11 @@ will create a ``nc`` command to connect to the challenge---it is equivalent to
 Reference
 ---------
 
-.. jsonschema:: ../rcds/challenge/challenge.schema.yaml
+.. code-block:: none
 
-Raw schema:
+   .. jsonschema:: ../rcds/challenge/challenge.schema.yaml
 
-.. literalinclude:: ../rcds/challenge/challenge.schema.yaml
-    :language: yaml
+      Raw schema:
+
+   .. literalinclude:: ../rcds/challenge/challenge.schema.yaml
+      :language: yaml
