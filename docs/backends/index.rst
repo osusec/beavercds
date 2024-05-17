@@ -15,18 +15,9 @@ Install Ingress Controller
 
 1. **Install NGINX Ingress Controller**:
 
-   - Apply the NGINX Ingress Controller using the following command:
+   - For detailed instructions and the latest deployment methods for the NGINX Ingress Controller, visit the official Kubernetes NGINX Ingress Controller deployment page at `NGINX Ingress Controller Deployment <https://kubernetes.github.io/ingress-nginx/deploy/>`_.
 
-     .. code-block:: bash
-
-        kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
-
-   - Verify the installation:
-
-     .. code-block:: bash
-
-        kubectl get pods -n ingress-nginx \
-          -l app.kubernetes.io/name=ingress-nginx --watch
+   - Follow the guidelines specific to your environment to ensure the Ingress Controller is properly set up.
 
 Deploy rCTF using Helm
 ----------------------
@@ -39,9 +30,15 @@ Deploy rCTF using Helm
 
 2. **Install rCTF**:
 
-   .. code-block:: bash
+   - Prepare a `values.yaml` file specifically for setting proxy configurations, such as port mappings and other network-related settings. This file is essential for customizing how external traffic is managed and routed to the deployment.
 
-      helm install rctf rctf/rctf
+   - Deploy rCTF with your custom proxy settings by executing:
+
+     .. code-block:: bash
+
+        helm install rctf rctf/rctf -f values.yaml
+
+This setup emphasizes the use of the `values.yaml` file for configuring network aspects like proxy settings, ensuring that the Helm deployment is aligned with your specific environmental requirements.
 
 Non-rCDS Deployment Setup
 -------------------------
